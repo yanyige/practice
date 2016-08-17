@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>yyg-backbone-model</title>
+</head>
+<body>
+</body>
+<script src="http://the5fireblog.b0.upaiyun.com/staticfile/jquery-1.10.2.js"></script>
+<script src="http://the5fireblog.b0.upaiyun.com/staticfile/underscore.js"></script>
+<script src="http://the5fireblog.b0.upaiyun.com/staticfile/backbone.js"></script>
+<script>
+(function ($) {
+    var Book = Backbone.Model.extend({
+    	initialize: function(){
+    		alert('My name is ' + this.get('name'));
+    	},
+    	defaults: {
+    		name: 'default'
+    	}
+    });
+
+    var BookShelf = Backbone.Collection.extend({
+    	model: Book
+    });
+
+    var book1 = new Book({name: 'book1'});
+    var book2 = new Book({name: 'book2'});
+    var book3 = new Book({name: 'book3'});
+
+    var bookShelf = new BookShelf;
+
+    bookShelf.add(book1);
+    bookShelf.add(book2);
+    bookShelf.add(book3);
+
+    bookShelf.each(function(book){
+    	alert('i im on the shelf , im ' + book.get('name'));
+    });
+
+    var yyg = bookShelf.create({name: 'yyg'});
+    alert(yyg.get('name'));
+
+})(jQuery);
+</script>
+</html>
