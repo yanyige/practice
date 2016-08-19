@@ -34,12 +34,17 @@
     bookShelf.add(book2);
     bookShelf.add(book3);
 
-    bookShelf.each(function(book){
-    	alert('i im on the shelf , im ' + book.get('name'));
-    });
+    // bookShelf.each(function(book){
+    //	alert('i im on the shelf , im ' + book.get('name'));
+    // });
 
-    var yyg = bookShelf.create({name: 'yyg'});
-    alert(yyg.get('name'));
+    // var yyg = bookShelf.create({name: 'yyg'});
+    // alert(yyg.get('name'));
+
+    console.log(bookShelf.models);
+    for(var i = 0 ; i < bookShelf.models.length ; i ++){
+       console.log(bookShelf.models[i].attributes);
+    }
 
 })(jQuery);
 </script>
